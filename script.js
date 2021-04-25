@@ -64,13 +64,15 @@ function generatePassword() {
 
 
   // Check to see at least one box is clicked OK
-  if (userChoiceLowercase, userChoiceUppercase, userChoiceNumeric, userChoiceSpecialChar === false) {
+  if (userChoiceLowercase === false && userChoiceUppercase === false && userChoiceNumeric === false && userChoiceSpecialChar === false) {
     alert("Password must contain at least one of the following characters: lowercase, uppercase, numeric, special character");
+    return;
   }
 
   var selectedChars = [];
-  if (selectedChars = selectedChars.concat(lowercaseChar));
-
+  if (userChoiceLowercase) {
+    selectedChars = selectedChars.concat(lowercaseChar);
+  }
   if (userChoiceUppercase) {
     selectedChars = selectedChars.concat(uppercaseChar);
   }
@@ -82,9 +84,20 @@ function generatePassword() {
   if (userChoiceSpecialChar) {
       selectedChars = selectedChars.concat(specialChar);
     }
-  
+  if (selectedChars.length == 0) {
+    alert("Password must contain at least one of the following characters: lowercase, uppercase, numeric, special character");
+    return;
   }
-  console.log("STOP");
+  
+  var i;
+  var password = "";
+  for (i = 0; i < userChoiceLength; i++) {
+     var randomChar = selectedChars[Math.floor(Math.random()*selectedChars.length)];
+    password = password.concat(randomChar);
+  }
+  return password;
+}
+
   // Enter arrays with user options into random number generator
   // Generate - display password
 
@@ -93,7 +106,6 @@ function generatePassword() {
 
   // Grab random# generator
   // Get random index from array of options
-  //var selectedChars = Math.floor(Math.random() * options.length);
   // Enter array with user options into random number generator
   // Generate - display password
 
