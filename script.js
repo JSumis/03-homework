@@ -1,3 +1,17 @@
+// Array for lowercase chars
+var lowercaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+// Array for uppercase chars
+var uppercaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+// Array for numeric characters
+var numericChar = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+// Array for special characters
+var specialChar = ["~", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", ":", ",", ".", "-", "_", "?", "/", "\\", "|"];
+
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -25,50 +39,68 @@ function generatePassword() {
   var userChoiceLength = prompt("Choose length of password, must be between 8 and 128 characters");
   if (!Number.isInteger(+userChoiceLength)) {
     alert("Response must be a number between 8-128")
+    return;
   }
   else if (userChoiceLength < 8) {
     alert("Password must be a minimum of 8 characters");
+    return;
   }
   else if (userChoiceLength > 128) {
     alert("Password can have a maximum of 128 characters");
-
-    //Prompt or use click-box to include lowercase characters
-    var userChoiceLowercase = confirm("Click OK if you want lowercase characters");
-
-    //Prompt to include uppercase characters
-    var userChoiceUppercase = confirm("Click OK if you want uppercase characters");
-
-    //Prompt to include numeric charcters
-    var userChoiceNumeric = confirm("Click OK if you want numeric characters");
-
-    //Prompt to include special characters
-    var userChoiceSpecialChar = confirm("Click OK if you want special characters");
-
-    // More Psuedocode
-    // Make arrays for all options
-    // lowercase
-    //var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-    // uppercase
-    //var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-    // special characters
-    //var specialChar = ["~", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", ":", ",", ".", "-", "_", "?", "/", "\", "|"];
-
-    // numeric characters
-
-
-
-
-    // Enter array with user options into random number generator
-    // Generate - display password
+    return;
   }
+
+  //Click-box to include lowercase characters boolean
+  var userChoiceLowercase = confirm("Click OK if you want lowercase characters");
+
+  //Click-box to include uppercase characters
+  var userChoiceUppercase = confirm("Click OK if you want uppercase characters");
+
+  //Click-box to include numeric charcters
+  var userChoiceNumeric = confirm("Click OK if you want numeric characters");
+
+  //Click-box to include special characters
+  var userChoiceSpecialChar = confirm("Click OK if you want special characters");
+
+
+  // Check to see at least one box is clicked OK
+  if (userChoiceLowercase, userChoiceUppercase, userChoiceNumeric, userChoiceSpecialChar === false) {
+    alert("Password must contain at least one of the following characters: lowercase, uppercase, numeric, special character");
+  }
+
+  var selectedChars = [];
+  if (selectedChars = selectedChars.concat(lowercaseChar));
+
+  if (userChoiceUppercase) {
+    selectedChars = selectedChars.concat(uppercaseChar);
+  }
+
+  if (userChoiceNumeric) {
+      selectedChars = selectedChars.concat(numericChar);
+    }
+
+  if (userChoiceSpecialChar) {
+      selectedChars = selectedChars.concat(specialChar);
+    }
+  
+  }
+  console.log("STOP");
+  // Enter arrays with user options into random number generator
+  // Generate - display password
+
 
   // More Psuedocode
 
-  // Take user generated options and enter into array?
+  // Grab random# generator
+  // Get random index from array of options
+  //var selectedChars = Math.floor(Math.random() * options.length);
   // Enter array with user options into random number generator
   // Generate - display password
+
+
+
+
+
 
 
 
@@ -88,4 +120,3 @@ function generatePassword() {
   // THEN a password is generated that matches the selected criteria
   // WHEN the password is generated
   // THEN the password is either displayed in an alert or written to the page
-}
